@@ -5,7 +5,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sleep 10
+                script {
+                    if (Integer.valueOf(env.BUILD_ID) % 3 == 0) {
+                        error("Build failed.")
+                    }
+                }
             }
         }
         stage('Test') {
@@ -37,7 +41,7 @@ pipeline {
                 stage('Integration tests on Linux') {
                     steps {
                         echo 'Building..'
-                        sleep 10
+                        sleep 9
                     }
                 }
             }
