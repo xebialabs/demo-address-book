@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 script {
-                    if (Integer.valueOf(env.BUILD_ID) % 3 == 0) {
+                    if (Integer.valueOf(env.BUILD_ID) % 3 != 0) {
                         error("Build failed.")
                     }
                 }
