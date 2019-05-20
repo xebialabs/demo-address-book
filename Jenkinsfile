@@ -5,11 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                script {
-                    if (Integer.valueOf(env.BUILD_ID) % 3 != 0) {
-                        error("Build failed.")
-                    }
-                }
             }
         }
         stage('Test') {
@@ -17,31 +12,31 @@ pipeline {
                 stage('API tests') {
                     steps {
                         echo 'Building..'
-                        sleep 7
+                        sleep 1
                     }
                 }
                 stage('Cypress tests') {
                     steps {
                         echo 'Building..'
-                        sleep 8
+                        sleep 1
                     }
                 }
                 stage('Protractor tests') {
                     steps {
                         echo 'Building..'
-                        sleep 5
+                        sleep 1
                     }
                 }
                 stage('Integration tests on Windows') {
                     steps {
                         echo 'Building..'
-                        sleep 11
+                        sleep 1
                     }
                 }
                 stage('Integration tests on Linux') {
                     steps {
                         echo 'Building..'
-                        sleep 9
+                        sleep 1
                     }
                 }
             }
@@ -49,13 +44,13 @@ pipeline {
         stage('Build documentation') {
             steps {
                 echo 'Deploying....'
-                sleep 2
+                sleep 1
             }
         }
         stage('Upload package') {
             steps {
                 echo 'Deploying....'
-                sleep 6
+                sleep 1
             }
         }
     }
