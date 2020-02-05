@@ -1,2 +1,2 @@
 Do something
-And do something else
+For the demo
